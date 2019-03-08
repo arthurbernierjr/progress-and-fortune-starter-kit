@@ -1,9 +1,26 @@
-# Dev-Starter-Kit
+# Dev-Starter-Kit UNDER CONSTRUCTION
+This Starter Kit is being created for New Web Developers that want to get started with VUE, and react
 
-So I built this for all the new web developers... My Goal is to save you time from the bullsh*t of spending hours looking for ways to speed up your learning. Sometimes all we want to do is just code.
-(if you are coming from my [youtube channel CodingPhase ](https://www.youtube.com/channel/UC46wWUso9H5KPQcoL9iE3Ug) I will base all my tutorials from this starter kit)
+Most people use a CLI Tool like Vue-Cli or Create React App and no idea what these things are doing
 
-I broke it down in simple steps to get you going.
+The goal of this is for it to be a tool that let's you learn JS at a new level because you have access to
+everything under the hood and no opinionated set up
+
+I will base all my tutorials on this Starter Kit.
+
+# Who Am I?
+
+I am Arthur Bernier Jr. I work as freelance fullstack web developer and attraction marketing consultant specializing in supporting e-commerce brands,
+subscription box sites, social activists, religious/non-profit leaders and creative entrepreneurs(i.e. barbers, artists, musicians, stylists, models and photographers).
+I have a passion for helping entrepreneurs reach their perfect audience and helping you communicate to that audience in a way that makes them know, like and trust you.
+
+
+# My Favorite Online Instructors
+
+[__Colt Steele__](https://www.youtube.com/channel/UCrqAGUPPMOdo0jfQ6grikZw)
+[__Brad Traversy__](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
+[__Jose Santos Garcia__](https://www.youtube.com/channel/UC46wWUso9H5KPQcoL9iE3Ug)
+[__Stephen Grider__](https://www.youtube.com/channel/UCQCaS3atWyNHEy5PkDXdpNg/)
 
 ## Steps
 
@@ -16,20 +33,23 @@ I broke it down in simple steps to get you going.
 **Download Atom (OPTIONAL)**
 	https://atom.io/
 
- **Install all the node packages** 
+ **Install all the node packages**
 On the root of this project run on your terminal (if you want you can do this with yarn but thats optional)
 ```bash
-    sudo npm install har-validator@latest --save-dev
-    sudo npm install
-    sudo npm install gulp-cli -g
-    sudo npm install gulp@3.9.1 -g 
-    sudo npm install webpack@4.25.1 -g
-    sudo npm install webpack-cli@3.1.2 -g
+	yarn install
+```
+### or
+```bash
+	npm install
 ```
 
 **Start the dev server**
 ```bash
-  npm run watch
+  yarn watch
+```
+### or
+```bash
+	npm run watch
 ```
 
 **Start the dev server with proxy**
@@ -39,21 +59,13 @@ On the root of this project run on your terminal (if you want you can do this wi
 
 **Build files for production**
 ```bash
+  yarn build
+```
+### or
+
+```bash
   npm run build
 ```
 
 ## Instructions to run starter kit on any backend
 Coming Soon
-
-# EACCESS ERROR FIX
-```diff
-- how to fix the EACCESS ERROR
-- lets say for example you trying to install webpack
-- sudo npm install webpack@4.25.1 -g
-- and get an error
-- Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/webpack/node_modules/fsevents/build'
-- then try again to install it but with this at the end "--unsafe-perm=true --allow-root"
-- for example
-- sudo npm install webpack@4.25.1 -g --unsafe-perm=true --allow-root
-```
-
