@@ -41,35 +41,35 @@ I have a passion for helping entrepreneurs reach their perfect audience and help
  **Install all the node packages**
 On the root of this project run on your terminal (if you want you can do this with yarn but thats optional)
 ```bash
-	yarn install
+yarn install
 ```
 ### or
 ```bash
-	npm install
+npm install
 ```
 
 **Start the dev server**
 ```bash
-  yarn watch
+yarn watch
 ```
 ### or
 ```bash
-	npm run watch
+npm run watch
 ```
 
 **Start the dev server with proxy**
 ```bash
-  npm run proxy
+npm run proxy
 ```
 
 **Build files for production**
 ```bash
-  yarn build
+yarn build
 ```
 ### or
 
 ```bash
-  npm run build
+npm run build
 ```
 
 ## Instructions to run starter kit on any backend
