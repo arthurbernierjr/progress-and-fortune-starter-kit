@@ -1,13 +1,18 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
-const browserSync = require('browser-sync');
+const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 var exec = require('child_process').exec;
 
-gulp.task('default', ['webpack', 'styles', 'browser-sync'], () => {
-	gulp.watch('./assets/scss/**/*', ['styles']);
-	gulp.watch('./assets/js/**/*', ['webpack']);
+gulp.task('default', (cb) => {
+	browserSync.init({
+		server: './public',
+		notify: false,
+		open: true //change this to true if you want the broser to open automatically
+	});
+	gulp.watch('./assets/scss/**/*', gulp.task('styles'));
+	gulp.watch('./assets/js/**/*', gulp.task('webpack'));
 	gulp
 		.watch([
 			'./public/**/*',
@@ -16,11 +21,12 @@ gulp.task('default', ['webpack', 'styles', 'browser-sync'], () => {
 			'!public/css/**/.#*css'
 		])
 		.on('change', reload);
+		cb()
 });
 
-gulp.task('watch-proxy', ['webpack', 'styles', 'browser-sync-proxy'], () => {
-	gulp.watch('./assets/scss/**/*', ['styles']);
-	gulp.watch('./assets/js/**/*', ['webpack']);
+gulp.task('watch-proxy', (cb) => {
+	gulp.watch('./assets/scss/**/*',  gulp.task('styles'));
+	gulp.watch('./assets/js/**/*', gulp.task('webpack'));
 	gulp
 		.watch([
 			'./public/**/*',
@@ -29,9 +35,10 @@ gulp.task('watch-proxy', ['webpack', 'styles', 'browser-sync-proxy'], () => {
 			'!public/css/**/.#*css'
 		])
 		.on('change', reload);
+		cb()
 });
 
-gulp.task('styles', () => {
+gulp.task('styles', (cb) => {
 	gulp
 		.src('assets/scss/**/*.scss')
 		.pipe(
@@ -46,17 +53,19 @@ gulp.task('styles', () => {
 		)
 		.pipe(gulp.dest('./public/css'))
 		.pipe(browserSync.stream());
+		cb()
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function(cb) {
 	browserSync.init({
 		server: './public',
 		notify: false,
 		open: false //change this to true if you want the broser to open automatically
 	});
+	cb()
 });
 
-gulp.task('browser-sync-proxy', function() {
+gulp.task('browser-sync-proxy', function(cb) {
 	// THIS IS FOR SITUATIONS WHEN YOU HAVE ANOTHER SERVER RUNNING
 	browserSync.init({
 		proxy: {
@@ -65,6 +74,7 @@ gulp.task('browser-sync-proxy', function() {
 		}
 		// serveStatic: ['.', './public']
 	});
+	cb()
 });
 
 gulp.task('webpack', cb => {
@@ -75,7 +85,7 @@ gulp.task('webpack', cb => {
 	});
 });
 
-gulp.task('build', ['styles'], cb => {
+gulp.task('build', cb => {
 	exec('npm run build:webpack', function(err, stdout, stderr) {
 		console.log(stdout);
 		console.log(stderr);
