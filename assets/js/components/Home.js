@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class Layout extends Component {
+export default class Home extends Component {
 	constructor() {
 		super();
 		this.state = {
-			name: 'Joe'
+			name: 'Arthur'
 		};
 	}
 	clickedBtn = () => {};
@@ -34,17 +34,16 @@ class Layout extends Component {
 							data-icon="octicon-star"
 							data-style="mega"
 							data-count-aria-label="# stargazers on GitHub"
-							aria-label="Star codingphasedotcom/rocky on GitHub"
+							aria-label="Star arthurbernierjr/progress-and-fortune-starter-kit on GitHub"
 						>
 							Star
 						</a>
 					</div>
 				</div>
+				<div className="Aligner-2">
+					<div className="Aligner-item">{this.props.children}</div>
+				</div>
 			</div>
 		);
 	}
 }
-
-const app = document.getElementById('app');
-
-ReactDOM.render(<Layout />, app);

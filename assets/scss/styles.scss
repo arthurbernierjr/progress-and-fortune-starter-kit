@@ -46,7 +46,15 @@ h1 {
   width: 100%;
   text-align: center;
   .Aligner {
-    min-height: 100vh;
+    min-height: 85vh;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .Aligner-2 {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
