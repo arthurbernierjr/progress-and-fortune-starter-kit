@@ -5,43 +5,83 @@ export default class Home extends Component {
 	constructor() {
 		super();
 		this.state = {
-			name: 'Arthur'
+			cardText: ''
+		};
+		this.positions = {
+			'winnie-list': {
+				left: null,
+				right: 'bob-list'
+			},
+			'bob-list': {
+				left: 'winnie-list',
+				right: 'thomas-list'
+			},
+			'thomas-list': {
+				left: 'bob-list',
+				right: 'george-list'
+			},
+			'george-list': {
+				left: 'thomas-list',
+				right: null
+			}
 		};
 	}
-	clickedBtn = () => {};
-	async test() {}
+	addACard = element => {
+		let cardText = window.prompt('Enter Your Text', 'enter text here');
+		const list = document.getElementById(element);
+		const card = document.createElement('li');
+		card.innerText = cardText;
+		list.appendChild(card);
+		return;
+	};
+	addWinnie = event => {
+		return this.addACard('winnie-list');
+	};
+	addBob = event => {
+		return this.addACard('bob-list');
+	};
+	addThomas = event => {
+		return this.addACard('thomas-list');
+	};
+	addGeorge = event => {
+		return this.addACard('george-list');
+	};
+	addMoveCardLeft = currentElement => {};
+	addMoveCardRight = currentElement => {};
 	render() {
 		return (
-			<div className="home">
-				<div className="Aligner">
-					<div className="Aligner-item">
-						<img src="http://progressandfortune.com/smac_images/profile.jpg" />
-						<h1>Progress and Fortune Starter Kit</h1>
-						<div className="menu">
-							<ul>
-								<li>
-									<a href="http://arthurbernierjr.com/about" target="new">
-										About Arthur
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div className="version-num">version 0.1.0</div>
-						<br />
-						<a
-							className="github-button"
-							href="https://github.com/arthurbernierjr/progress-and-fortune-starter-kit"
-							data-icon="octicon-star"
-							data-style="mega"
-							data-count-aria-label="# stargazers on GitHub"
-							aria-label="Star arthurbernierjr/progress-and-fortune-starter-kit on GitHub"
-						>
-							Star
-						</a>
-					</div>
+			<div className="Page">
+				<div className="column">
+					<h2 className="heading winnie">Winnie</h2>
+					<ul id="winnie-list">
+						<li>1 Card</li>
+						<li>2 Card</li>
+					</ul>
+					<button onClick={this.addWinnie}>Add A Card</button>
 				</div>
-				<div className="Aligner-2">
-					<div className="Aligner-item">{this.props.children}</div>
+				<div className="column">
+					<h2 className="heading bob">Bob</h2>
+					<ul id="bob-list">
+						<li>1 Card</li>
+						<li>2 Card</li>
+					</ul>
+					<button onClick={this.addBob}>Add A Card</button>
+				</div>
+				<div className="column">
+					<h2 className="heading thomas">Thomas</h2>
+					<ul id="thomas-list">
+						<li>1 Card</li>
+						<li>2 Card</li>
+					</ul>
+					<button onClick={this.addThomas}>Add A Card</button>
+				</div>
+				<div class="column">
+					<h2 className="heading george">George</h2>
+					<ul id="george-list">
+						<li>1 Card</li>
+						<li>2 Card</li>
+					</ul>
+					<button onClick={this.addGeorge}>Add A Card</button>
 				</div>
 			</div>
 		);

@@ -13,9 +13,9 @@ class App extends Component {
 	async test() {}
 	render() {
 		return (
-			<Home>
-				<span> This is where children go</span>
-			</Home>
+			<div className="Page-wrapper">
+				<Home />
+			</div>
 		);
 	}
 }
