@@ -21,7 +21,7 @@ module.exports = env => {
 		},
 		output: {
 			path: path.resolve(__dirname, 'public/js/dist'),
-			filename: '[name].js' // '[name].[chunkhash].js' put this if you want to get hashed files to cache bust
+			filename: '[name].[chunkhash].js' // '[name].[chunkhash].js' put this if you want to get hashed files to cache bust
 		},
 		module: {
 			rules: [
@@ -45,15 +45,15 @@ module.exports = env => {
 		plugins: [
 			new CleanWebpackPlugin('public/js/dist', {}),
 			new MiniCssExtractPlugin({
-				filename: 'styles.css' // 'style.[contenthash].css' put this if you want to get hashed files to cache bust
+				filename: 'style.[contenthash].css' // 'style.[contenthash].css' put this if you want to get hashed files to cache bust
 			}),
-			// new HtmlWebpackPlugin({
-			// 	inject: false,
-			// 	hash: true,
-			// 	template: './assets/index.html',
-			// 	children: false,
-			// 	filename: '../index.html'
-			// }),
+			new HtmlWebpackPlugin({
+				inject: true,
+				hash: true,
+				template: './assets/index.html',
+				children: false,
+				filename: '../../index.html'
+			}),
 			new WebpackMd5Hash()
 		],
 		optimization: {

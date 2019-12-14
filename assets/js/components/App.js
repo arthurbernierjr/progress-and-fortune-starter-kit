@@ -9,8 +9,6 @@ class App extends Component {
 			name: 'Arthur'
 		};
 	}
-	clickedBtn = () => {};
-	async test() {}
 	render() {
 		return (
 			<div className="Page-wrapper">

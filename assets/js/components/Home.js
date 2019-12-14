@@ -7,24 +7,6 @@ export default class Home extends Component {
 		this.state = {
 			cardText: ''
 		};
-		this.positions = {
-			'winnie-list': {
-				left: null,
-				right: 'bob-list'
-			},
-			'bob-list': {
-				left: 'winnie-list',
-				right: 'thomas-list'
-			},
-			'thomas-list': {
-				left: 'bob-list',
-				right: 'george-list'
-			},
-			'george-list': {
-				left: 'thomas-list',
-				right: null
-			}
-		};
 	}
 	addACard = element => {
 		let cardText = window.prompt('Enter Your Text', 'enter text here');
@@ -46,8 +28,6 @@ export default class Home extends Component {
 	addGeorge = event => {
 		return this.addACard('george-list');
 	};
-	addMoveCardLeft = currentElement => {};
-	addMoveCardRight = currentElement => {};
 	render() {
 		return (
 			<div className="Page">
@@ -55,7 +35,7 @@ export default class Home extends Component {
 					<h2 className="heading winnie">Winnie</h2>
 					<ul id="winnie-list">
 						<li>1 Card</li>
-						<li>2 Card</li>
+						<li>43 Card</li>
 					</ul>
 					<button onClick={this.addWinnie}>Add A Card</button>
 				</div>
@@ -63,7 +43,7 @@ export default class Home extends Component {
 					<h2 className="heading bob">Bob</h2>
 					<ul id="bob-list">
 						<li>1 Card</li>
-						<li>2 Card</li>
+						<li>3 Card</li>
 					</ul>
 					<button onClick={this.addBob}>Add A Card</button>
 				</div>

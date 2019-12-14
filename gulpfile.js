@@ -8,7 +8,7 @@ var exec = require('child_process').exec;
 gulp.task('default', (cb) => {
 	browserSync.init({
 		server: './public',
-		notify: false,
+		notify: true,
 		open: true //change this to true if you want the broser to open automatically
 	});
 	gulp.watch('./assets/scss/**/*', gulp.task('styles'));
@@ -16,9 +16,7 @@ gulp.task('default', (cb) => {
 	gulp
 		.watch([
 			'./public/**/*',
-			'./public/*',
-			'!public/js/**/.#*js',
-			'!public/css/**/.#*css'
+			'./public/*'
 		])
 		.on('change', reload);
 		cb()
